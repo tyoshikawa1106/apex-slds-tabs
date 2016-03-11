@@ -1,0 +1,66 @@
+<apex:page showHeader="true" sidebar="true">
+    <!-- AngularJS -->
+    <apex:includeScript value="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.min.js" />
+    <apex:includeScript value="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-route.js" />
+    <apex:includeScript value="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-messages.js" />
+    <!-- Lightning Design System -->
+    <apex:stylesheet value="{!URLFOR($Resource.SLDS100, 'assets/styles/salesforce-lightning-design-system-vf.css')}" />
+    <!-- Main -->
+    <div ng-app="myApp">
+        <div ng-controller="mainCtrl">
+            <div class="slds" id="vf-page">
+                <!-- DefaultTab -->
+                <div>
+                    <div class="slds-tabs--default">
+                        <!-- Tab Menu -->
+                        <ul class="slds-tabs--default__nav" role="tablist">
+                            <li class="slds-tabs--default__item slds-text-heading--label" ng-class="{'slds-active' : (defaultTab == 'one')}" title="Item One" role="presentation">
+                                <a class="slds-tabs--default__link" ng-click="selectDefaultOne($event)" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-default-1" id="tab-default-1__item">Item One</a>
+                            </li>
+                            <li class="slds-tabs--default__item slds-text-heading--label" ng-class="{'slds-active' : (defaultTab == 'two')}" title="Item Two" role="presentation">
+                                <a class="slds-tabs--default__link" ng-click="selectDefaultTwo($event)" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-2" id="tab-default-2__item">Item Two</a>
+                            </li>
+                            <li class="slds-tabs--default__item slds-text-heading--label" ng-class="{'slds-active' : (defaultTab == 'three')}" title="Item Three" role="presentation">
+                                <a class="slds-tabs--default__link" ng-click="selectDefaultThree($event)" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-3" id="tab-default-3__item">Item Three</a>
+                            </li>
+                        </ul>
+                        <!-- Tab Content -->
+                        <div id="tab-default-1" class="slds-tabs--default__content" ng-class="(defaultTab == 'one') ? 'slds-show' : 'slds-hide'" role="tabpanel" aria-labelledby="tab-default-1__item">
+                            Item One Content
+                        </div>
+                        <div id="tab-default-2" class="slds-tabs--default__content" ng-class="(defaultTab == 'two') ? 'slds-show' : 'slds-hide'" role="tabpanel" aria-labelledby="tab-default-2__item">
+                            Item Two Content
+                        </div>
+                        <div id="tab-default-3" class="slds-tabs--default__content" ng-class="(defaultTab == 'three') ? 'slds-show' : 'slds-hide'" role="tabpanel" aria-labelledby="tab-default-3__item">
+                            Item Three Content
+                        </div>
+                      </div>
+                </div>
+                <hr/>
+                <!-- ScopedTab -->
+                <div>
+                    <div class="slds-tabs--scoped">
+                        <!-- Tab Menu -->
+                        <ul class="slds-tabs--scoped__nav" role="tablist">
+                            <li class="slds-tabs--scoped__item slds-text-heading--label" ng-class="{'slds-active' : (scopedTab == 'one')}" title="Item One" role="presentation">
+                                <a class="slds-tabs--scoped__link" ng-click="selectScopedOne($event)" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-scoped-1" id="tab-scoped-1__item">Item One</a>
+                            </li>
+                            <li class="slds-tabs--scoped__item slds-text-heading--label" ng-class="{'slds-active' : (scopedTab == 'two')}" title="Item Two" role="presentation">
+                                <a class="slds-tabs--scoped__link" ng-click="selectScopedTwo($event)" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-scoped-2" id="tab-scoped-2__item">Item Two</a>
+                            </li>
+                            <li class="slds-tabs--scoped__item slds-text-heading--label" ng-class="{'slds-active' : (scopedTab == 'three')}" title="Item Three" role="presentation">
+                                <a class="slds-tabs--scoped__link" ng-click="selectScopedThree($event)" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-scoped-3" id="tab-scoped-3__item">Item Three</a>
+                            </li>
+                        </ul>
+                        <!-- Tab Content -->
+                        <div id="tab-scoped-1" class="slds-tabs--scoped__content slds-show" ng-class="(scopedTab == 'one') ? 'slds-show' : 'slds-hide'" role="tabpanel" aria-labelledby="tab-scoped-1__item">Item One Content</div>
+                        <div id="tab-scoped-2" class="slds-tabs--scoped__content slds-hide" ng-class="(scopedTab == 'two') ? 'slds-show' : 'slds-hide'" role="tabpanel" aria-labelledby="tab-scoped-2__item">Item Two Content</div>
+                        <div id="tab-scoped-3" class="slds-tabs--scoped__content slds-hide" ng-class="(scopedTab == 'three') ? 'slds-show' : 'slds-hide'" role="tabpanel" aria-labelledby="tab-scoped-3__item">Item Three Content</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Javascript -->
+    <apex:include pageName="SLDS_TabsScript" />
+</apex:page>

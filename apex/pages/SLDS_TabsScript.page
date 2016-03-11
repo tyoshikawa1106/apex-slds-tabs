@@ -1,0 +1,55 @@
+<apex:page >
+    <script type="text/javascript">
+        (function(){
+            // Angular.module
+            var app = angular.module('myApp', ['ngMessages']);
+
+            // MainCtrl
+            app.controller('mainCtrl', ["$scope", function($scope) {
+                // DefaultTab
+                $scope.defaultTab = 'one';
+                console.log('defaultTab - ' + $scope.defaultTab);
+                
+                $scope.selectDefaultOne = function(event) {
+                    event.preventDefault();
+                    $scope.defaultTab = 'one';
+                    console.log('defaultTab - ' + $scope.defaultTab);
+                };
+
+                $scope.selectDefaultTwo = function(event) {
+                    event.preventDefault();
+                    $scope.defaultTab = 'two';
+                    console.log('defaultTab - ' + $scope.defaultTab);
+                };
+
+                $scope.selectDefaultThree = function(event) {
+                    event.preventDefault();
+                    $scope.defaultTab = 'three';
+                    console.log('defaultTab - ' + $scope.defaultTab);
+                };
+
+                // ScopedTab
+                $scope.scopedTab = 'one';
+                console.log('scopedTab - ' + $scope.scopedTab);
+                
+                $scope.selectScopedOne = function(event) {
+                    event.preventDefault();
+                    $scope.scopedTab = 'one';
+                    console.log('scopedTab - ' + $scope.scopedTab);
+                };
+
+                $scope.selectScopedTwo = function(event) {
+                    event.preventDefault();
+                    $scope.scopedTab = 'two';
+                    console.log('scopedTab - ' + $scope.scopedTab);
+                };
+
+                $scope.selectScopedThree = function(event) {
+                    event.preventDefault();
+                    $scope.scopedTab = 'three';
+                    console.log('scopedTab - ' + $scope.scopedTab);
+                };
+            }]);
+        })();
+    </script>
+</apex:page>
